@@ -1,0 +1,31 @@
+.App {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.home-toggler{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:30px;
+}
+.home-data{
+  position: relative;
+  margin: 0 auto;
+  margin-top: 51px;
+  border:3px solid rgba(0, 0, 0, 0.049);
+  width:50%;
+  padding:5px;
+}
+
+.Add-container{
+  position:relative;
+  margin-top:50px
+}
+.question-stats{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
