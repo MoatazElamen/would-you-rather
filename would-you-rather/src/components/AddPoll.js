@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Button,Divider,Form,TextArea,Grid,Segment} from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import {handleAddQuestion, handleAddUser} from '../actions/shared'
+import {handleAddQuestion} from '../actions/shared'
+import {withRouter} from 'react-router-dom'
  class AddPoll extends Component {
 
     state = {
@@ -17,6 +18,7 @@ import {handleAddQuestion, handleAddUser} from '../actions/shared'
         let {optionOne,optionTwo} = this.state;
         let {authedUser ,handleAddQuestion} = this.props;
         handleAddQuestion({author:authedUser.id,optionOneText:optionOne.trim(),optionTwoText:optionTwo.trim()})
+        this.props.history.push('/')
         
     }
     render() {
@@ -61,4 +63,4 @@ const mapStateToProps = ({authedUser})=>({
 const mapDispathToProps = (dispatch)=>({
     handleAddQuestion: (question)=> dispatch(handleAddQuestion(question)),
 })
-export default connect(mapStateToProps,mapDispathToProps)(AddPoll)
+export default withRouter(connect(mapStateToProps,mapDispathToProps)(AddPoll))

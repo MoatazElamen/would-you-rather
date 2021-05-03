@@ -23,6 +23,7 @@ import Poll from './Poll'
             if(Object.keys(users[authedUser.id].answers).includes(question.id)){
                 return question
             }
+            return false
         
         }).sort((a,b)=>b.timestamp - a.timestamp)
         return (
@@ -32,8 +33,8 @@ import Poll from './Poll'
                     <Grid columns={2} divided>
                         <Grid.Column>
                             <Button.Group>
-                                <Button onClick={this.handleChoose} active={this.state.checked == 'Answered' ? true:false}>Answered</Button>
-                                <Button onClick={this.handleChoose}  active={this.state.checked == 'UnAnswered' ? true:false}>UnAnswered</Button>
+                                <Button onClick={this.handleChoose} active={this.state.checked === 'Answered' ? true:false}>Answered</Button>
+                                <Button onClick={this.handleChoose}  active={this.state.checked === 'UnAnswered' ? true:false}>UnAnswered</Button>
                                 <Button icon as={Link} to='/add'>
                                 <Icon name='add' />
                                 </Button>

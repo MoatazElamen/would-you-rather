@@ -23,12 +23,18 @@ class PollDetail extends Component {
     }
     render() {
         const {data,answered,image} = this.props.location.state;
-        const {totalUsers,userIds,users} = this.props
+        const {totalUsers,userIds,users} = this.props;
+        // const answerMarkOne = users[this.props.authedUser.id].answers[data.id]
+        // const answerMarkTwo = users[this.props.authedUser.id].answers
+        const answer = users[this.props.authedUser.id].answers[data.id]
         let countVoted = [];
         userIds.map((userid)=>{
             if(users[userid].answers[data.id]){
                 countVoted.push({user:userid,answer:users[userid].answers[data.id]})
+            }else{
+                return false
             }
+            return false
         })
         const countVotedOptionOne =countVoted.filter(vote=> vote.answer === 'optionOne').length;
         const countVotedOptionTwo = countVoted.filter(vote=> vote.answer === 'optionTwo').length; 
@@ -41,7 +47,7 @@ class PollDetail extends Component {
                             <Grid.Column>
                                 <Segment size="massive">
 
-                                    <Header  textAlign="center" color={this.props.authedUser.answers[data.id] ==='optionOne'?'blue':'black'}>
+                                    <Header  textAlign="center" color={ answer ==='optionOne'?'blue':'black'}>
                                         {data.optionOne.text}
 
                                     </Header>
@@ -68,7 +74,7 @@ class PollDetail extends Component {
                             </Grid.Column>
                             <Grid.Column>
                                 <Segment size="massive">
-                                <Header  textAlign="center" color={this.props.authedUser.answers[data.id] ==='optionTwo'?'blue':'black'}>
+                                <Header  textAlign="center" color={answer ==='optionTwo'?'blue':'black'}>
                                     {data.optionTwo.text}
                                 </Header>
                                 <div className="question-stats">

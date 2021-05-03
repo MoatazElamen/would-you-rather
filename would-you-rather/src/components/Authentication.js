@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import {Segment,Grid,Form,Button,Divider,Dropdown} from 'semantic-ui-react'
+import {Segment,Grid,Button,Dropdown} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {handleAddUser,handleLogin} from '../actions/shared'
 import {withRouter} from 'react-router'
-import authedUser from '../reducers/authedUser'
  class Authentication extends Component {
      state = {selectedUser:null}
      handleChange = (e,data)=>{
@@ -26,7 +25,7 @@ import authedUser from '../reducers/authedUser'
     render() {
 
         let options = []
-        for(const [key,value] of Object.entries(this.props.users)){
+        for(const [,value] of Object.entries(this.props.users)){
             options.push({text:value.name,image:{avatar:true,src:value.avatarURL},value:value.id})
         }
         return (
