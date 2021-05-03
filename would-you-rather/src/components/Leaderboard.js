@@ -13,7 +13,6 @@
                      questions:user.questions.length,
                      score:Object.keys(user.answers).length + user.questions.length})
          });
-         console.log(usersStat)
          return (
              <div>
                 <Container  style={{position:'relative',marginTop:'50px'}}>

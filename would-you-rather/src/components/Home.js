@@ -25,7 +25,6 @@ import Poll from './Poll'
             }
         
         }).sort((a,b)=>b.timestamp - a.timestamp)
-        console.log({answered:answered.length,unanswered:unanswered.length})
         return (
             <div>
                 <div className="home-container">

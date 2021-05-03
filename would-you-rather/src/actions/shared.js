@@ -13,7 +13,6 @@ export  function handleInitialData(){
             dispatch(hideLoading())
             dispatch(fetchUsers(users))
             dispatch(fetchQuestions(questions))
-            console.log(JSON.parse(localStorage.getItem('loggedinuser')))
             if(JSON.parse(localStorage.getItem('loggedinuser')) !== null ){
                 dispatch(login(JSON.parse(localStorage.getItem('loggedinuser'))))
             }
